@@ -7,7 +7,7 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
-app.use(require('prerender-node'));
+app.use(require('prerender-node').set('prerenderToken', 'a8YTe7HU60e2WEUnnmAA'));
 
 app.use((req, res, next) => {
   console.log('User-Agent:',req.get('User-Agent'))
