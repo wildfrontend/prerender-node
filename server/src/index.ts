@@ -6,6 +6,8 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
+app.use(require('prerender-node'));
+
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
 });
