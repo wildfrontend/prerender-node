@@ -14,8 +14,15 @@ app.use((req, res, next) => {
   return next()
 });
 
-app.use(express.static(path.join(__dirname, '../../client/dist')));
+const clientBuildPath = '../../client/dist'
+
+app.use(express.static(path.join(__dirname, clientBuildPath)));
 app.use(express.static(path.join(__dirname, '../static')))
+
+//math all path from spa router
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, clientBuildPath, 'index.html'));
+});
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
