@@ -2,15 +2,15 @@ import express, { Express } from "express";
 import dotenv from "dotenv";
 import path from 'path'
 
-dotenv.config();
+dotenv.config({ path: "../.env" });
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
-app.use(require('prerender-node').set('prerenderToken', 'a8YTe7HU60e2WEUnnmAA'));
+app.use(require('prerender-node').set('prerenderToken', process.env.PRERENDER_TOKEN));
 
 app.use((req, res, next) => {
-  console.log('User-Agent:',req.get('User-Agent'))
+  console.log('User-Agent:', req.get('User-Agent'))
   return next()
 });
 

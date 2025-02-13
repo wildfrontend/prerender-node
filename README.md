@@ -4,6 +4,8 @@
 
 首先，前往 [Prerender.io](https://dashboard.prerender.io/) 註冊帳號，並獲取專屬的 API Token。
 
+並命名為 `PRERENDER_TOKEN` 環境變數
+
 ---
 
 ## 2. 部署專案並取得 Production Domain
